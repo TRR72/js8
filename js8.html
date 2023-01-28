@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            border: 1px solid rgb(26, 98, 140);
+            padding: 16px;
+            text-align: center;
+            background: rgb(27, 99, 138);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content"></div>
+    <img src="" alt="">
+    <script src="data.js"></script>
+
+    <script>
+
+        const data = JSON.parse(dataInfo);
+        console.log(data);
+        data.forEach(element => {
+
+            const divData = document.querySelector('.content');
+            const imgContent = document.createElement('img');
+            const title = document.createElement('h3');
+            const descrEl = document.createElement('p');
+
+            title.textContent = element.name;
+            descrEl.textContent = element.description;
+            imgContent.src = element.url;
+            imgContent.alt = element.id;
+            imgContent.width = element.width;
+            imgContent.height = element.height;
+
+            divData.appendChild(title);
+            divData.appendChild(imgContent);
+            divData.appendChild(descrEl);
+        });
+    </script>
+</body>
+
+</html>
